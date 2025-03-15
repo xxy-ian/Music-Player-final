@@ -1,0 +1,162 @@
+*:focus {
+    outline: none;
+}
+
+body > iframe:first-child { 
+    display: none !important; 
+}
+
+body {
+    font-family: Helvetica, Arial;
+    margin: 0;
+    background-color: #060100 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main player wrapper */
+#app-cover {
+    position: relative;
+    width: 450px;
+    height: 140px;
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Album Artwork */
+#album-art {
+    position: absolute;
+    top: -35px; /* Positioned slightly up */
+    left: 15px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    overflow: hidden;
+    background: #000;
+    transition: 0.3s ease all;
+}
+
+/* When music is playing, rotate */
+#album-art.active {
+    animation: spin 3s linear infinite;
+}
+
+/* Center Hole in the Vinyl */
+#album-art:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    background: black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 2px #fff;
+    z-index: 2;
+}
+
+/* Album Image */
+#album-art img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* Spinning Animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Track Info */
+#player-track {
+    position: relative;
+    margin-left: 120px;
+    color: white;
+}
+
+#album-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c2c2c2;
+}
+
+#track-name {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #999;
+}
+
+/* Progress Bar */
+#track-time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #ff3c7f;
+    margin-top: 8px;
+}
+
+#s-area {
+    background-color: #ffe8ee !important;
+    height: 5px;
+    width: 100%;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 5px;
+}
+
+#seek-bar {
+    background-color: #ff3c7f !important;
+    height: 5px;
+    width: 0%; /* Will update dynamically */
+    border-radius: 4px;
+}
+
+/* Controls */
+#player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.button {
+    width: 45px;
+    height: 45px;
+    background-color: #5c23f6 !important;
+    color: #fff !important;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s ease all;
+}
+
+.button i {
+    font-size: 20px;
+}
+
+.button:hover {
+    background-color: #200e52;
+}
+
+#ins-time {
+    display: none !important;
+}
+
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinning {
+    animation: spin 5s linear infinite;
+}
